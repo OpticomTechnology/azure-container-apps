@@ -20,7 +20,7 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09
   name: logAnalyticsWorkspaceName
 }
 
-resource applicationInsights 'Microsoft.Insights/components@2020-02-02' existing = {
+resource applicationInsights 'Microsoft.Insights/components@2020-02-02-preview' existing = {
   name: applicationInsightsName
 }
 
@@ -104,7 +104,7 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-02-02-
   }
 }
 
-resource dotNetComponent 'Microsoft.App/managedEnvironments/dotNetComponents@2024-08-02-preview' = {
+resource dotNetComponent 'Microsoft.App/managedEnvironments/dotNetComponents@2024-02-02-preview' = {
   name: 'aspire-dashboard'
   parent: containerAppsEnvironment
   properties: {

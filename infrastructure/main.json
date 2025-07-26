@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.36.177.2456",
-      "templateHash": "9672968018001854630"
+      "templateHash": "1669550132071406961"
     }
   },
   "parameters": {
@@ -240,7 +240,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.36.177.2456",
-              "templateHash": "14509158975465230443"
+              "templateHash": "6621754372394447305"
             }
           },
           "parameters": {
@@ -287,14 +287,13 @@
             },
             {
               "type": "Microsoft.Insights/components",
-              "apiVersion": "2020-02-02",
+              "apiVersion": "2020-02-02-preview",
               "name": "[format('appi-{0}-{1}-{2}-{3}', parameters('namePrefix'), parameters('location'), parameters('projectName'), parameters('targetEnvironment'))]",
               "location": "[parameters('location')]",
               "kind": "web",
               "properties": {
                 "Application_Type": "web",
                 "SamplingPercentage": 100,
-                "RetentionInDays": 90,
                 "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', format('log-{0}-{1}-{2}-{3}', parameters('namePrefix'), parameters('location'), parameters('projectName'), parameters('targetEnvironment')))]"
               },
               "dependsOn": [
@@ -618,7 +617,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.36.177.2456",
-              "templateHash": "12677450595719827856"
+              "templateHash": "16771524254504064624"
             }
           },
           "parameters": {
@@ -721,7 +720,7 @@
                     "workloadProfileType": "Consumption"
                   }
                 ],
-                "daprAIInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]",
+                "daprAIInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02-preview').InstrumentationKey]",
                 "appLogsConfiguration": {
                   "destination": "log-analytics",
                   "logAnalyticsConfiguration": {
@@ -737,7 +736,7 @@
                 "publicNetworkAccess": "Enabled",
                 "openTelemetryConfiguration": null,
                 "appInsightsConfiguration": {
-                  "connectionString": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').InstrumentationKey]"
+                  "connectionString": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02-preview').InstrumentationKey]"
                 }
               },
               "dependsOn": [
@@ -746,7 +745,7 @@
             },
             {
               "type": "Microsoft.App/managedEnvironments/dotNetComponents",
-              "apiVersion": "2024-08-02-preview",
+              "apiVersion": "2024-02-02-preview",
               "name": "[format('{0}/{1}', format('cae-{0}-{1}-{2}-{3}', parameters('namePrefix'), parameters('location'), parameters('projectName'), parameters('targetEnvironment')), 'aspire-dashboard')]",
               "properties": {
                 "componentType": "AspireDashboard"
@@ -834,7 +833,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.36.177.2456",
-              "templateHash": "12260061293089895769"
+              "templateHash": "17616493402317352600"
             }
           },
           "parameters": {
@@ -995,7 +994,7 @@
                     },
                     {
                       "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                      "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
+                      "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02-preview').ConnectionString]"
                     },
                     {
                       "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -1139,7 +1138,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.36.177.2456",
-              "templateHash": "50619552908093629"
+              "templateHash": "8828994766657995859"
             }
           },
           "parameters": {
@@ -1235,7 +1234,7 @@
           "resources": [
             {
               "type": "Microsoft.App/containerApps",
-              "apiVersion": "2024-08-02-preview",
+              "apiVersion": "2024-02-02-preview",
               "name": "[format('ca-{0}-{1}-{2}', parameters('containerAppName'), parameters('projectName'), parameters('targetEnvironment'))]",
               "location": "[parameters('location')]",
               "tags": {
