@@ -24,14 +24,13 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09
   }
 }
 
-resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {  
+resource applicationInsights 'Microsoft.Insights/components@2020-02-02-preview' = {  
   name: 'appi-${namePrefix}-${location}-${projectName}-${targetEnvironment}'
   location: location
   kind: 'web'
   properties: {
     Application_Type: 'web'
     SamplingPercentage: 100
-    RetentionInDays: 90
     WorkspaceResourceId: logAnalyticsWorkspace.id
   }
 }

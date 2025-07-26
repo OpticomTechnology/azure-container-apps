@@ -47,7 +47,7 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-02-02-
   name: containerAppsEnvironmentName
 }
 
-resource applicationInsights 'Microsoft.Insights/components@2020-02-02' existing = {
+resource applicationInsights 'Microsoft.Insights/components@2020-02-02-preview' existing = {
   name: applicationInsightsName
 }
 
